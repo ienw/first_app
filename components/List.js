@@ -1,20 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {useContext, useEffect} from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
 import ListItem from './ListItem';
+import {MediaContext} from '../contexts/MediaContext'
+import {getAllMedia} from '../hooks/APIHooks';
 
-const List = (props) => {
-  console.log(props);
+const List = () => {
+  const [media, setMedia] = useContext(MediaContext);
+  const [data] = getAllMedia();
+  //console.log('List', data);
+  setMedia(data);
   return (
     <FlatList
-      data={props.mediaArray}
+      data={media}
+      keyExtractor={(item, index) => index.toString()}
       renderItem={({item}) => <ListItem singleMedia={item} />}
     />
   );
-};
-
-List.propTypes = {
-  mediaArray: PropTypes.array,
 };
 
 export default List;
