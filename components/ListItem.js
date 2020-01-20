@@ -13,7 +13,7 @@ const ListItem = (props) => {
       />
 
       <View style={styles.text}>
-        <Text>{props.singleMedia.title}</Text>
+        <Text style={styles.title}>{props.singleMedia.title}</Text>
         <Text>{props.singleMedia.description}</Text>
       </View>
     </TouchableOpacity>
