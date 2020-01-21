@@ -1,18 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
-import {MediaProvider} from './contexts/MediaContext';
-import Navigator from './navigators/Navigator'
+import List from '../components/List';
 
 
 
 
-const App = () => {
+
+const Home = (props) => {
+  const {navigation} = props;
   return (
-    <MediaProvider>
-      <Navigator></Navigator>
-    </MediaProvider>
+    <View style={styles.container}>
+      <List navigation={navigation}></List>
+    </View>
   );
- };
+};
 
 export const styles = StyleSheet.create({
   row:{
@@ -36,4 +37,4 @@ export const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Home;

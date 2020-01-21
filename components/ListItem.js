@@ -6,13 +6,23 @@ import {styles} from '../App';
 const mediaURL = 'http://media.mw.metropolia.fi/wbma/uploads/'
 
 const ListItem = (props) => {
-  console.log(styles)
   return (
-    <TouchableOpacity style={styles.row}>
+    <TouchableOpacity style={styles.row}
+    onPress={
+      () => {
+        props.navigation.push('Single', {
+          filename:props.singleMedia.filename,
+          title:props.singleMedia.title
+        });
+
+      }
+    }>
       <Image
         style={styles.image}
         source={{uri: mediaURL + props.singleMedia.filename}}
       />
+
+
 
       <View style={styles.text}>
         <Text>{props.singleMedia.title}</Text>
