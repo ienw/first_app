@@ -1,36 +1,45 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {Dimensions} from 'react-native';
+import AsyncImage from '../components/AsyncImage';
+import {Container, Content, Card, CardItem, Text, Body} from 'native-base';
 
-
+const deviceHeight = Dimensions.get('window').height;
 const mediaURL = 'http://media.mw.metropolia.fi/wbma/uploads/'
 
 const Single = (props) => {
   const {navigation} = props;
-  const filename = navigation.state.params.filename;
-
+  const params = navigation.state.params;
+  console.log ("params", params)
   return (
-    <View style={styles.container}>
-      <Text>{navigation.state.params.title}</Text>
-      <Image
-        style={styles.image}
-        source={{uri: mediaURL + filename}}
-      ></Image>
-    </View>
-  );
+    <Container>
+        <Content>
+            <Card>
+                <CardItem>
+                    <Body>
+                        <Text>{params.title}</Text>
+                        <Text note>by {params.user_id}</Text>
+                    </Body>
+                </CardItem>
+                <CardItem cardBody>
+                    <AsyncImage
+                        style={{
+                            width: '100%',
+                            height: deviceHeight / 2,
+                        }}
+                        spinnerColor='#777'
+                        source={{uri: mediaURL + params.filename}}
+                    />
+                </CardItem>
+                <CardItem>
+                    <Body>
+                        <Text>{params.description}</Text>
+                    </Body>
+                </CardItem>
+            </Card>
+        </Content>
+    </Container>
+);
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 40,
-  },
-  image:{
-    height: 300,
-    width: 200,
-  }
-});
 
 export default Single;

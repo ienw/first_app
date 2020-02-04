@@ -8,27 +8,34 @@ import Single from '../views/Single';
 import AuthLoading from '../views/AuthLoading';
 import Login from '../views/Login';
 import Register from  '../views/Register';
+import React from 'react';
+import {Icon} from "native-base"
 
 
 
 
 const TabNavigator = createBottomTabNavigator(
   {
-    Home: {
-      screen: Home,
-      navigationOptions: {
-        title: 'Home',
-      },
-    },
-    Profile: {
-      screen: Profile,
-      navigationOptions: {
-        title: 'Profile',
-      },
-    },
+    Home,
+    Profile,
   },
   {
-    initialRouteName: 'Home',
+    defaultNavigationOptions: ({navigation}) => ({
+      tabBarIcon: () => {
+        const {routeName} = navigation.state;
+        let iconName;
+        if (routeName === 'Home') {
+          iconName = 'home';
+        } else if (routeName === 'Profile') {
+          iconName = 'person';
+        }
+
+        return <Icon
+          name={iconName}
+          size={25}
+        />;
+      },
+    }),
   }
 );
 
