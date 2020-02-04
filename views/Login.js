@@ -29,11 +29,11 @@ const Login = (props) => { // props is needed for navigation
   }
 
   return (
-    <View style={styles.container}>
+    <View>
 
 
-      <Text>Login</Text>
-      <View style={styles.form}>
+      <Text style={{textAlign: "center", marginTop:20}}>Login</Text>
+      <View>
         <FormTextInput
           autoCapitalize='none'
           placeholder='username'
@@ -55,19 +55,10 @@ const Login = (props) => { // props is needed for navigation
 };
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 40,
-  },
-  form: {
-    padding:20,
-  }
-});
 
-// proptypes here
+
+Login.propTypes = {
+  navigation: PropTypes.object,
+};
 
 export default Login;

@@ -26,9 +26,9 @@ const Register = (props) => {
   };
 
   return (
-      <View style={styles.form}>
-      <Text style={styles.Text}>Register</Text>
-      <View style={styles.form}>
+      <View >
+      <Text style={{textAlign: "center", marginTop:20}}>Register</Text>
+      <View >
         <FormTextInput
           autoCapitalize='none'
           placeholder='username'
@@ -56,20 +56,6 @@ const Register = (props) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 40,
-  },
-  form: {
-    padding:20,
-  },
-  Text:{
-    textAlign: 'center',
-  }
-});
+
 
 export default Register;
