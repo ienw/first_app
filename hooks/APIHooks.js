@@ -27,35 +27,4 @@ const getAllMedia = () => {
   return [data, loading];
 }
 
-const login = async (data) => {
-  const fetchOptions = {
-    method: 'POST',
-    headers: {
-      'content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  };
-  try{
-    const response = await fetch(apiUrl + 'login', fetchOptions, data)
-    return await response.json();
-  }catch(e) {
-    console.log('error', e.message);
-  };
-}
-
-const register = async (data) => {
-  const fetchOptions = {
-    method: 'POST',
-    headers: {
-      'content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  };
-  try{
-    const response = await fetch(apiUrl + 'users', fetchOptions, data)
-    return await response.json();
-  }catch(e) {
-    console.log('error', e.message);
-  };
-}
-export { getAllMedia, login, register };
+export { getAllMedia, fetchGET, fetchPOST };
