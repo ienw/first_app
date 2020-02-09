@@ -10,7 +10,7 @@ import Login from '../views/Login';
 import Register from  '../views/Register';
 import React from 'react';
 import {Icon} from "native-base"
-
+import Upload from '../views/Upload';
 
 
 
@@ -18,6 +18,7 @@ const TabNavigator = createBottomTabNavigator(
   {
     Home,
     Profile,
+    Upload,
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -28,16 +29,33 @@ const TabNavigator = createBottomTabNavigator(
           iconName = 'home';
         } else if (routeName === 'Profile') {
           iconName = 'person';
+        }  else if (routeName === 'Upload') {
+          iconName = 'add';
         }
 
+        // You can return any component that you like here!
         return <Icon
           name={iconName}
           size={25}
         />;
       },
     }),
-  }
+    tabBarOptions: {
+      activeTintColor: '#000',
+    },
+  },
 );
+
+TabNavigator.navigationOptions = ({navigation}) => {
+  const {routeName} = navigation.state.routes[navigation.state.index];
+
+  // You can do whatever you like here to pick the title based on the route name
+  const headerTitle = routeName;
+
+  return {
+    headerTitle,
+  };
+};
 
 const StackNavigator = createStackNavigator(
   {
