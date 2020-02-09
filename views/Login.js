@@ -221,13 +221,7 @@ const Login = (props) => {
   );
 };
 
-<<<<<<< HEAD
 // proptypes here
-=======
-
-
-
->>>>>>> fixed task 6 native base
 Login.propTypes = {
   navigation: PropTypes.object,
 };

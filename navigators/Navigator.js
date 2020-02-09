@@ -7,7 +7,6 @@ import Profile from '../views/Profile';
 import Single from '../views/Single';
 import AuthLoading from '../views/AuthLoading';
 import Login from '../views/Login';
-import Register from  '../views/Register';
 import React from 'react';
 import {Icon} from "native-base"
 import Upload from '../views/Upload';
