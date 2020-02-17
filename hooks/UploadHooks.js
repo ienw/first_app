@@ -50,7 +50,7 @@ const useUploadForm = () => {
             const json = await result.json();
             console.log('upload result:', json);
             if (json.file_id) {
-                // upload successful
+                console.log('if json.fileid');
                 const json = await fetchGET('media/all');
                 const result = await Promise.all(json.files.map(async (item) => {
                     return await fetchGET('media', item.file_id);
